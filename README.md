@@ -8,7 +8,7 @@ Customer support processes often involve reviewing records, notifying the right 
 
 ## Workflow Overview
 
-![Make customer support workflow overview](docs/workflow-overview.png)
+![Make customer support workflow overview](docs/makeworkflow-overview.png.png)
 
 The existing scenario contains the following modules:
 
