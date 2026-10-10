@@ -1,78 +1,48 @@
-# AI Customer Support Automation
+# Customer Support Workflow Automation
 
-An AI-powered customer support workflow that automates ticket classification, priority assignment, response drafting, and ticket tracking using n8n, Airtable, and an LLM.
+A rule-based customer support workflow built with Make, Airtable, Gmail, a text parser, and Slack.
 
 ## Overview
 
-Customer support teams often spend valuable time manually reviewing incoming requests, categorizing issues, identifying urgent tickets, and preparing responses.
+Customer support processes often involve reviewing records, notifying the right people, and keeping ticket information up to date. This project demonstrates how no-code automation connects these steps and reduces repetitive manual handling.
 
-This project demonstrates how AI and workflow automation can streamline these repetitive tasks while keeping human agents involved in the final response.
+## Workflow Overview
 
-## The Problem
+![Make customer support workflow overview](docs/workflow-overview.png)
 
-Manual support workflows can lead to:
+The existing scenario contains the following modules:
 
-* Slow ticket triage and response times
-* Inconsistent issue categorization
-* Urgent requests being overlooked
-* Repetitive response writing
-* Limited visibility into ticket status and workload
+1. **Airtable — Watch Records:** Monitors Airtable records.
+2. **Router:** Splits the workflow into two routes using configured rules.
+3. **Gmail — Send an email:** Sends an email on the first route.
+4. **Airtable — Update a Record:** Updates an Airtable record after the email step.
+5. **Text Parser — Match pattern:** Matches text against a configured pattern on the second route.
+6. **Slack — Send a Message:** Sends a Slack notification on the second route.
 
-## The Solution
-
-The workflow receives customer support requests, analyzes them with AI, assigns categories and priority levels, drafts suggested responses, and records the results for tracking.
-
-**Workflow:** Customer Request → AI Classification → Priority Routing → Response Drafting → Human Review → Ticket Tracking
-
-## Core Features
-
-* Automated ticket intake
-* AI-powered issue classification
-* Urgency and sentiment analysis
-* Priority-based routing and escalation
-* AI-generated response suggestions
-* Human review before responses are sent
-* Ticket status tracking
-* Structured support data for reporting
+The exact routing conditions and message contents require further verification.
 
 ## Technology Stack
 
-* **n8n:** Workflow orchestration and automation
-* **Airtable:** Ticket database and tracking
-* **LLM:** Ticket analysis and response generation
-* **Tally or Webhook:** Customer request intake
+* Make — Workflow automation and routing
+* Airtable — Record monitoring and updates
+* Gmail — Email notifications
+* Text Parser — Pattern matching
+* Slack — Team notifications
 
-## Expected Business Impact
+## Business Value
 
-The project is designed to help support teams reduce repetitive manual work, identify urgent issues faster, improve consistency, and maintain better visibility into customer requests.
+This workflow demonstrates how connected tools can reduce repetitive manual steps, send notifications through existing communication channels, and keep records updated.
 
-Actual performance improvements will be measured after testing.
-
-## Repository Structure
-
-```text
-ai-customer-support-automation/
-├── README.md
-├── workflow/
-│   └── customer-support-workflow.json
-├── prompts/
-│   └── system-prompt.md
-├── examples/
-│   ├── sample-ticket.json
-│   └── classified-ticket.json
-└── docs/
-    └── workflow-overview.png
-```
+Actual time savings and performance improvements have not yet been measured.
 
 ## Future Improvements
 
-* Integration with a helpdesk platform such as Freshdesk
-* Service-level agreement (SLA) monitoring
-* Automated escalation for critical tickets
-* Support performance dashboard
-* Customer satisfaction analysis
-* Evaluation of AI classification accuracy
+* Document and test routing conditions
+* Add sample input records and expected outcomes
+* Track failed runs and notification errors
+* Build a dashboard for ticket volume and response times
+* Explore AI-assisted ticket classification as a future enhancement
 
 ## Project Status
 
-In development.
+Existing workflow documented from the available Make scenario screenshot. Detailed configuration and end-to-end testing remain to be documented.
